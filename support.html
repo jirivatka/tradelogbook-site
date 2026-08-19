@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Logbook</title>
+<meta name="description" content="Help for Logbook: connection problems, why realised P&amp;L differs from Alpaca's dashboard, missing prices, and the market clock.">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2f6df6">
+<link rel="canonical" href="https://tradelogbook.app/support.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="mark" href="/"><img src="/icon-96.png" alt="" width="28" height="28">Logbook</a>
+  <nav><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<h1>Support</h1>
+<p class="lede">Ask a question or report a problem in the <a href="https://github.com/jirivatka/Logbook-Support/discussions">support forum</a>. It is open to everyone and does not need an Alpaca account — a GitHub account is enough.</p>
+<p class="note">⚠️ Never post an API key or secret. Not in a screenshot, not in a log. If one has been shared anywhere, revoke it in your Alpaca dashboard and create a new pair — it takes a few seconds and is the only safe response.</p>
+
+<h2>“Rejected credentials” when connecting</h2>
+<p>Alpaca answers a bad key with a bare <code>unauthorized</code>, which looks the same whatever the cause. In practice it is almost always one of these:</p>
+<dl>
+  <dt>Paper keys on a live account, or the reverse</dt>
+  <dd>They are different key pairs and are not interchangeable. A paper key ID begins with <code>PK</code>, a live one with <code>AK</code> — Logbook checks this before it sends anything, so if it let the request through, the pairing was right.</dd>
+
+  <dt>The same value in both fields</dt>
+  <dd>Easy to do when copying twice from the same page. The key ID is 26 characters and the secret is 44 — if they look similar in length, something is wrong.</dd>
+
+  <dt>A truncated paste</dt>
+  <dd>A missing first or last character fails identically to a wrong key.</dd>
+
+  <dt>Keys that were regenerated</dt>
+  <dd>Creating a new pair in the Alpaca dashboard invalidates the old one immediately, including in any bot still using it.</dd>
+</dl>
+
+<h2>The realised figure differs from Alpaca’s dashboard</h2>
+<p>It should, and Logbook’s is the one that answers “what did I make”.</p>
+<p>Alpaca’s activities list shows <strong>cash proceeds per fill</strong> — the money that moved when each order executed. It is not profit, because it never pairs an entry with its exit. Logbook does that pairing on your device, first in first out per symbol, and reports the result of each completed round trip.</p>
+<p>Positions still open are excluded, because nothing is realised until a trade closes.</p>
+
+<h2>The total doesn’t match my account balance</h2>
+<p>Check whether you are reading the gross figure or the net one. Alpaca charges no commission on equities, but it passes on SEC, FINRA and CAT fees. They are billed per day rather than per trade, so History shows them as their own rows and nets them into a separate <strong>Net</strong> line. That net figure is the one that reconciles with your balance.</p>
+<p>If a period filter is on, the total covers only that period.</p>
+
+<h2>A symbol shows “no data”</h2>
+<p>Prices come from Alpaca under your own data plan. On the free plan that is the <strong>IEX feed</strong> only — a fraction of consolidated volume — so thinly traded symbols can have no recent print, and the volume shown is IEX’s own rather than the full tape. Logbook labels it that way rather than presenting it as the market’s volume.</p>
+
+<h2>Market hours look wrong</h2>
+<p>They are shown in your device’s timezone, not New York’s. If you are in Central Europe, the US open is late afternoon.</p>
+
+<h2>“Connection limit exceeded”</h2>
+<p>Alpaca permits one market-data stream per account, and something else — usually your own trading bot — already holds it. Logbook polls over REST and does not open a stream, so this points at another client rather than at Logbook.</p>
+
+<h2>Restoring your purchase</h2>
+<p>The unlock is a one-off purchase tied to your Apple Account. On a new device, open Logbook and choose <strong>Restore purchase</strong>. If it reports nothing found, check you are signed in with the Apple Account that bought it.</p>
+
+<h2>Can Logbook place trades?</h2>
+<p>No. It has no ability to place, change or cancel an order — the capability is absent from the app, not switched off. Logbook shows you what an account did; something else does the trading.</p>
+
+<h2>Something else</h2>
+<p>Open a thread in the <a href="https://github.com/jirivatka/Logbook-Support/discussions">support forum</a>. Saying which iOS version, whether the account is paper or live, and what you expected to see is usually enough to get to the answer quickly.</p>
+</main>
+
+<footer><div class="wrap">
+<p>© 2026 RedPixl s.r.o. · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a></p>
+<p class="fineprint">Logbook is an independent client for the Alpaca API and is not affiliated with, endorsed by, or sponsored by Alpaca Securities LLC or Alpaca Markets.</p>
+<p class="fineprint">Logbook displays information from your own brokerage account and does not provide investment advice.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logbook — see what your Alpaca account actually did</title>
+<meta name="description" content="An iOS client for Alpaca that computes realised P&amp;L trade by trade, nets the regulatory fees, and shows the orders that were submitted and never filled. Your API keys stay in your device's Keychain. No account, no subscription.">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/icon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2f6df6">
+<link rel="canonical" href="https://tradelogbook.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Logbook">
+<meta property="og:url" content="https://tradelogbook.app/">
+<meta property="og:title" content="Logbook — see what your Alpaca account actually did">
+<meta property="og:description" content="Realised P&amp;L trade by trade, net of fees, plus the orders that never filled. Read-only. Your keys never leave your device.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Logbook",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS 17+",
+  "description": "A read-only iOS client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, and reconciliation of orders that were submitted but never filled.",
+  "url": "https://tradelogbook.app/",
+  "image": "https://tradelogbook.app/icon-512.png",
+  "offers": { "@type": "Offer", "price": "4.99", "priceCurrency": "USD" }
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="mark" href="/"><img src="/icon-96.png" alt="" width="28" height="28">Logbook</a>
+  <nav><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+  <p class="status"><span class="dot" aria-hidden="true"></span>Coming to the App Store</p>
+  <h1>See what your account actually did.</h1>
+  <p class="lede">Logbook reads an <strong>Alpaca</strong> brokerage account and answers the question the dashboard doesn’t: what did each trade make, after costs — and did every order you sent actually fill?</p>
+  <p class="cta">
+    <a class="ghost" href="/support.html">Support</a>
+    <a class="ghost" href="/privacy.html">Privacy</a>
+  </p>
+  <p class="hero-note">iPhone, iOS 17 or later. Free for three days, then a one-off $4.99. No subscription and no account — you bring your own Alpaca API keys.</p>
+</div>
+
+<h2>Alpaca does not tell you what a trade made</h2>
+<p>The API returns orders and fills, not results. A buy and a sell come back as two unrelated rows, and pairing them is left to you. Logbook does that pairing on your device — first in, first out, per symbol, using Alpaca’s own <code>position_intent</code> so a short closed lower reads correctly as a win.</p>
+
+<div class="row">
+  <div class="top"><span><span class="sym">META</span><span class="tag">long</span></span><span class="pl down">−90,76 US$</span></div>
+  <div class="meta">45 × 548,77 → 546,75 &nbsp;·&nbsp; −0,37%</div>
+  <div class="meta">24 694,65 US$ &nbsp;·&nbsp; 18. 8. at 16:37 → 16:43</div>
+</div>
+
+<p>Every row shows what the trade rode on and what it returned, because −90,76 means nothing until you know it was staked on roughly 24 700 — which makes it a scratch, not a disaster.</p>
+
+<h2>The orders that never filled</h2>
+<p>This is the part no other client shows. An order can be submitted, accepted, and then expire without ever trading — and if it was the exit on an open position, that position is still open. On a strategy meant to be flat overnight, that is a real loss hiding in a place nobody looks.</p>
+<p class="note">This is not hypothetical. Logbook’s first run against a real paper book surfaced an expired sell from three weeks earlier. Reconstructing it turned up a 77-share position that had carried for three days on an intraday strategy — and a P&amp;L record that was wrong by $356.90.</p>
+
+<h2>Fees included, because they change the answer</h2>
+<p>Alpaca charges no commission on equities, which is not the same as free. It passes on SEC, FINRA and CAT fees, billed per day, and they appear on an endpoint the orders API never mentions. A total computed from orders alone is always slightly flattering.</p>
+<p>Logbook fetches them, itemises each charge under the day it belongs to, and nets the total — so the figure it shows reconciles with your account balance to the cent.</p>
+
+<h2>What it does</h2>
+<div class="grid">
+  <div class="card"><h3>Book</h3><p>Equity, cash, buying power, and every open position with its size and return.</p></div>
+  <div class="card"><h3>History</h3><p>Closed trades with realised P&amp;L, each fee itemised, filtered by period or a custom date range.</p></div>
+  <div class="card"><h3>Charts</h3><p>The equity curve after fees, results by instrument, and how long positions were actually held.</p></div>
+  <div class="card"><h3>Markets</h3><p>What you hold and trade, with last prices and the US market clock in your own timezone.</p></div>
+  <div class="card"><h3>Several books at once</h3><p>Paper and live accounts side by side, each with its own keys. Switching is instant and never asks you to paste anything again.</p></div>
+  <div class="card"><h3>Home Screen widget</h3><p>Equity, the day’s change, and whether anything is still outstanding.</p></div>
+</div>
+
+<h2>Read-only, by construction</h2>
+<p>Logbook cannot place, modify or cancel an order. Not as a setting — the code that would do it does not exist. It is a viewer for accounts that are traded by something else, whether that is you or a strategy you run.</p>
+
+<h2>Your keys stay yours</h2>
+<p>API keys are verified once against Alpaca and then stored in your device’s Keychain. There is no Logbook account, no server, and no analytics in the app. Nothing you connect is transmitted anywhere except to Alpaca’s own API, under your own credentials.</p>
+
+<h2>Before you start</h2>
+<ul>
+  <li>An Alpaca brokerage account, paper or live, and an API key pair from your Alpaca dashboard.</li>
+  <li>Prices come from Alpaca under your own data plan. On the free plan that is the IEX feed — a fraction of consolidated volume, not the full tape.</li>
+  <li>Alpaca allows one market-data stream per account. Logbook polls over REST instead, so it will not take the connection your own bots are using.</li>
+</ul>
+</main>
+
+<footer><div class="wrap">
+<p>© 2026 RedPixl s.r.o. · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a></p>
+<p class="fineprint">Logbook is an independent client for the Alpaca API. It is not affiliated with, endorsed by, or sponsored by Alpaca Securities LLC or Alpaca Markets. “Alpaca” is used here only to describe the service Logbook connects to.</p>
+<p class="fineprint">Logbook displays information from your own brokerage account. It does not provide investment advice, recommendations, or any form of financial advisory service, and nothing it shows should be treated as such.</p>
+</div></footer>
+</body>
+</html>
