@@ -60,6 +60,11 @@
 
 <p>Every row shows what the trade rode on and what it returned, because −90,76 means nothing until you know it was staked on roughly 24 700 — which makes it a scratch, not a disaster.</p>
 
+<figure class="shot">
+  <img src="/screens/history.png" alt="Logbook's History screen: realised +336,23 US$, regulatory fees −5,27 US$, net +330,96 US$, then closed trades with each fee itemised under the day it was charged." width="405" height="880" loading="lazy">
+  <figcaption>Realised, fees, and the figure that reconciles with your balance — then every trade and every charge beneath it.</figcaption>
+</figure>
+
 <h2>The orders that never filled</h2>
 <p>This is the part no other client shows. An order can be submitted, accepted, and then expire without ever trading — and if it was the exit on an open position, that position is still open. On a strategy meant to be flat overnight, that is a real loss hiding in a place nobody looks.</p>
 <p class="note">This is not hypothetical. Logbook’s first run against a real paper book surfaced an expired sell from three weeks earlier. Reconstructing it turned up a 77-share position that had carried for three days on an intraday strategy — and a P&amp;L record that was wrong by $356.90.</p>
@@ -67,6 +72,11 @@
 <h2>Fees included, because they change the answer</h2>
 <p>Alpaca charges no commission on equities, which is not the same as free. It passes on SEC, FINRA and CAT fees, billed per day, and they appear on an endpoint the orders API never mentions. A total computed from orders alone is always slightly flattering.</p>
 <p>Logbook fetches them, itemises each charge under the day it belongs to, and nets the total — so the figure it shows reconciles with your account balance to the cent.</p>
+
+<figure class="shot">
+  <img src="/screens/charts.png" alt="Logbook's Charts screen: a cumulative realised curve after fees, results by instrument, and how long positions were held." width="405" height="880" loading="lazy">
+  <figcaption>The equity curve is charged for fees too, so it ends where the net figure does.</figcaption>
+</figure>
 
 <h2>What it does</h2>
 <div class="grid">
