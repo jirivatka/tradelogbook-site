@@ -24,10 +24,14 @@ The privacy policy is short because the truth is short: no analytics, no
 tracking, no account, no backend. Before editing it, check the claims still
 hold.
 
-⚠️ **The site currently runs NO analytics, and `privacy.html` says so.** If
-Cloudflare Web Analytics is ever added — as on the RedPixl sites — that page
-must change in the SAME commit. A privacy policy that is accurate on Tuesday
-and false on Wednesday is worse than not having one.
+⚠️ **The site runs Cloudflare Web Analytics (cookieless), and `privacy.html`
+says so.** Added 2026-08-19, in the same commit as the disclosure. If the
+beacon is ever removed, or swapped for anything that sets a cookie or tracks
+across sites, that page changes in the SAME commit. A privacy policy that is
+accurate on Tuesday and false on Wednesday is worse than not having one.
+
+⚠️ The beacon is the ONLY external asset on these pages. Everything else is
+served from this repo, so a blocked CDN degrades analytics and nothing else.
 
 ⚠️ The support page links to `github.com/jirivatka/Logbook-Support/discussions`.
 That repo must exist with Discussions enabled before submission, or the Support
