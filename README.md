@@ -37,6 +37,19 @@ served from this repo, so a blocked CDN degrades analytics and nothing else.
 That repo must exist with Discussions enabled before submission, or the Support
 URL leads to a 404 and review fails on it.
 
+## ⚠️ Cache-bust the stylesheet on every CSS change
+
+`style.css` is linked as `style.css?v=<hash>`, and the hash must be updated
+whenever the file changes. GitHub Pages serves it with `max-age=600`, so
+without this a reader who loaded any page in the previous ten minutes keeps the
+OLD stylesheet — and un-styled figures are full-width and left-aligned, which
+reads as a broken layout rather than as a stale file. That is exactly how it
+was first reported.
+
+```
+python3 -c "import hashlib;print(hashlib.sha1(open('style.css','rb').read()).hexdigest()[:8])"
+```
+
 ## Deploy
 
 GitHub Pages from the default branch. `CNAME` pins the custom domain.
