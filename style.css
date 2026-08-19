@@ -138,6 +138,17 @@ footer p { color: var(--muted); font-size: .9rem; margin: .3rem 0; }
    Rounded to match iOS's own squircle closely enough at this scale. */
 .appicon {
   width: 96px; height: 96px; border-radius: 22px;
-  display: block; margin: 0 0 1.1rem;
+  display: block; margin: 0 auto 1.1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,.18);
+}
+
+/* ⚠️ The WHOLE hero centres, not just the icon. A centred icon above a
+   left-aligned headline reads as a mistake rather than as a choice — the eye
+   sees one thing out of line, not a deliberate arrangement. Body content below
+   stays left-aligned, which is the conventional pairing and keeps long
+   paragraphs readable. */
+.hero { text-align: center; }
+.hero .cta { justify-content: center; }
+.hero .lede, .hero .hero-note {
+  max-width: 34rem; margin-left: auto; margin-right: auto;
 }
