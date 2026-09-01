@@ -40,10 +40,14 @@
 <main class="wrap">
 <div class="hero">
   <img class="appicon" src="/icon-512.png" alt="" width="96" height="96">
-  <p class="status"><span class="dot" aria-hidden="true"></span>Coming to the App Store</p>
+  <p class="status"><span class="dot" aria-hidden="true"></span>On the App Store</p>
   <h1>See what your account actually did.</h1>
   <p class="lede">Logbook reads an <strong>Alpaca</strong> brokerage account and answers the question the dashboard doesn’t: what did each trade make, after costs — and did every order you sent actually fill?</p>
   <p class="cta">
+    <!-- Country-agnostic /app/id… deliberately: Apple redirects it to the
+         visitor's own storefront. A hardcoded /de/ or /us/ link sends everyone
+         else through a country switch they did not ask for. -->
+    <a class="primary" href="https://apps.apple.com/app/id6803156999">Download on the App Store</a>
     <a class="ghost" href="/support.html">Support</a>
     <a class="ghost" href="/privacy.html">Privacy</a>
   </p>
