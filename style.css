@@ -123,10 +123,15 @@ footer p { color: var(--muted); font-size: .9rem; margin: .3rem 0; }
 .fineprint { font-size: .82rem; }
 
 /* Screenshots. Constrained rather than full-bleed: a phone screenshot blown up
-   to the column width reads as a poster, and the point here is the detail. */
+   to the column width reads as a poster, and the point here is the detail.
+   ⚠️ 300px, not the source file's 405px. Displaying a 405px asset at 405px is
+   1x — soft on every Retina screen the site is actually read on. At 300 the
+   same file lands at ~1.35x and is SHARPER while taking less of the page, so
+   the reduction costs no detail and no extra bytes. Do not raise this back
+   toward 405 without shipping a 2x asset to go with it. */
 .shot { margin: 1.6rem 0 2rem; text-align: center; }
 .shot img {
-  max-width: 100%; height: auto; width: 405px;
+  max-width: 100%; height: auto; width: 300px;
   border: 1px solid var(--line); border-radius: 1.4rem;
 }
 .shot figcaption {
