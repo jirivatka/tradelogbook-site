@@ -28,7 +28,7 @@
   "name": "Logbook",
   "applicationCategory": "FinanceApplication",
   "alternateName": "Logbook for Alpaca",
-  "operatingSystem": "iOS 17+",
+  "operatingSystem": "iOS 17+, iPadOS 17+",
   "applicationSubCategory": "Trading journal",
   "keywords": "Alpaca, Alpaca Markets, Alpaca API, Alpaca trading journal, trade journal, trading journal, realised P&L, realized P&L, profit and loss, brokerage account, algorithmic trading, algo trading, paper trading, order reconciliation, unfilled orders, regulatory fees, SEC Section 31, FINRA TAF",
   "featureList": [
@@ -37,7 +37,9 @@
     "Orders that were submitted to Alpaca and never filled",
     "Equity curve, results by instrument, and hold-time distribution",
     "Multiple Alpaca paper and live accounts, kept separate",
-    "Read-only: it cannot place, modify or cancel an order"
+    "Read-only: it cannot place, modify or cancel an order",
+    "Built for iPad, with accounts in a sidebar beside the book",
+    "Dynamic Type: every number and label follows the system text size"
   ],
   "description": "A read-only iOS client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, and reconciliation of orders that were submitted but never filled.",
   "url": "https://tradelogbook.app/",
@@ -63,7 +65,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="style.css?v=70842a72">
+<link rel="stylesheet" href="style.css?v=ea60907b">
 </head>
 <body>
 <header><div class="wrap">
@@ -85,7 +87,7 @@
     <a class="ghost" href="/support.html">Support</a>
     <a class="ghost" href="/privacy.html">Privacy</a>
   </p>
-  <p class="hero-note">iPhone, iOS 17 or later — an iPad version is planned, and an Android version is in testing. Free for three days, then a one-off $4.99. No subscription and no account — you bring your own Alpaca API keys.</p>
+  <p class="hero-note">iPhone and iPad, iOS 17 or later — one purchase covers both. An Android version is in testing. Free for three days, then a one-off $4.99. No subscription and no account — you bring your own Alpaca API keys.</p>
 </div>
 
 <h2>Alpaca does not tell you what a trade made</h2>
@@ -117,6 +119,14 @@
   <figcaption>The equity curve is charged for fees too, so it ends where the net figure does.</figcaption>
 </figure>
 
+<h2>On iPad, your accounts stay in view</h2>
+<p>Accounts sit in a sidebar and the book fills the rest, so moving between a paper account and a live one does not cost you the one you were reading. Rows keep a readable width instead of stretching across a 13-inch display, and every number and label follows your Larger Text setting.</p>
+
+<figure class="shot wide">
+  <img src="/screens/ipad-history.png" alt="Logbook on iPad: an accounts sidebar on the left, and the History screen on the right showing realised profit, regulatory fees, the net figure and the closed trades beneath it." width="840" height="1120" loading="lazy">
+  <figcaption>The same History screen, with the account list alongside it rather than behind a menu.</figcaption>
+</figure>
+
 <h2>What it does</h2>
 <div class="grid">
   <div class="card"><h3>Book</h3><p>Equity, cash, buying power, and every open position with its size and return.</p></div>
@@ -135,7 +145,7 @@
 
 <h2>Before you start</h2>
 <ul>
-  <li>An iPhone running iOS 17 or later. ⚠️ iPhone only for now — an iPad version is planned, and buying on iPhone will cover it when it arrives, because the unlock is a single purchase tied to your Apple Account.</li>
+  <li>An iPhone or iPad running iOS 17 or later. The unlock is a single purchase tied to your Apple Account, so buying it on one covers the other.</li>
   <li>An Alpaca brokerage account, paper or live, and an API key pair from your Alpaca dashboard.</li>
   <li>Prices come from Alpaca under your own data plan. On the free plan that is the IEX feed — a fraction of consolidated volume, not the full tape.</li>
   <li>Alpaca allows one market-data stream per account. Logbook polls over REST instead, so it will not take the connection your own bots are using.</li>

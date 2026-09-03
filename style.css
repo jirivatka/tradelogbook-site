@@ -134,6 +134,10 @@ footer p { color: var(--muted); font-size: .9rem; margin: .3rem 0; }
   max-width: 100%; height: auto; width: 300px;
   border: 1px solid var(--line); border-radius: 1.4rem;
 }
+/* iPad shots are landscape-ish next to the portrait phone ones — 300px would
+   render the sidebar unreadable. max-width keeps it inside a phone viewport. */
+.shot.wide img { width: 560px; }
+
 .shot figcaption {
   color: var(--muted); font-size: .9rem; margin-top: .7rem;
   max-width: 34rem; margin-left: auto; margin-right: auto;
