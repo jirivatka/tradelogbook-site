@@ -38,10 +38,12 @@
     "Equity curve, results by instrument, and hold-time distribution",
     "Multiple Alpaca paper and live accounts, kept separate",
     "Read-only: it cannot place, modify or cancel an order",
+    "Deposits, withdrawals, dividends and interest shown alongside your trades",
+    "Reconciliation: funding plus realised plus income less fees, checked against your balance",
     "Built for iPad, with accounts in a sidebar beside the book",
     "Dynamic Type: every number and label follows the system text size"
   ],
-  "description": "A read-only iOS client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, and reconciliation of orders that were submitted but never filled.",
+  "description": "A read-only iOS client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, deposits and income shown alongside the trades, and a reconciliation of your balance against what the account actually did.",
   "url": "https://tradelogbook.app/",
   "image": "https://tradelogbook.app/icon-512.png",
   "offers": [
@@ -118,6 +120,14 @@
   <img src="/screens/charts.png" alt="Logbook's Charts screen: a cumulative realised curve after fees, results by instrument, and how long positions were held." width="405" height="880" loading="lazy">
   <figcaption>The equity curve is charged for fees too, so it ends where the net figure does.</figcaption>
 </figure>
+
+<h2>Where the money came from, not just what the trades did</h2>
+<p>A deposit moves your equity and appears in no trade history anywhere — so the number changes and nothing explains it. Logbook reads your account&rsquo;s cash activity too: money you paid in or took out shows in the timeline alongside your trades, and it is never counted as a trading result, because you put it there rather than earning it.</p>
+<p>Dividends and interest are the opposite case. They <em>are</em> earned, and a closed-trade figure structurally cannot show them, so they are totalled on their own line instead of being folded into your trading result or left out of it altogether.</p>
+
+<h2>And a balance that adds up</h2>
+<p>Put those together and the app can do the one check that tests the whole rather than the parts: what you paid in, plus what you made, plus income, less the fees, plus what your open positions are worth &mdash; against the equity Alpaca reports independently. If the two agree, it says so. If they do not, it says that instead, and by how much.</p>
+<p>Small differences are expected and named rather than hidden: every result is worked out from the exact quantity and price, while the money that actually moved was rounded to the cent on each fill.</p>
 
 <h2>On iPad, your accounts stay in view</h2>
 <p>Accounts sit in a sidebar and the book fills the rest, so moving between a paper account and a live one does not cost you the one you were reading. Rows keep a readable width instead of stretching across a 13-inch display, and every number and label follows your Larger Text setting.</p>
