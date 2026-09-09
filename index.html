@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Logbook — see what your Alpaca account actually did</title>
-<meta name="description" content="An iOS client for Alpaca that computes realised P&amp;L trade by trade, nets the regulatory fees, and shows the orders that were submitted and never filled. Your API keys stay in your device's Keychain. No account, no subscription.">
+<meta name="description" content="An iOS and Android client for Alpaca that computes realised P&amp;L trade by trade, nets the regulatory fees, and shows the orders that were submitted and never filled. Your API keys stay in your device's Keychain. No account, no subscription.">
 <link rel="icon" href="/favicon-32.png" sizes="32x32">
 <link rel="icon" href="/icon-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,7 +28,7 @@
   "name": "Logbook",
   "applicationCategory": "FinanceApplication",
   "alternateName": "Logbook for Alpaca",
-  "operatingSystem": "iOS 17+, iPadOS 17+",
+  "operatingSystem": "iOS 17+, iPadOS 17+, Android 8+",
   "applicationSubCategory": "Trading journal",
   "keywords": "Alpaca, Alpaca Markets, Alpaca API, Alpaca trading journal, trade journal, trading journal, realised P&L, realized P&L, profit and loss, brokerage account, algorithmic trading, algo trading, paper trading, order reconciliation, unfilled orders, regulatory fees, SEC Section 31, FINRA TAF",
   "featureList": [
@@ -43,7 +43,7 @@
     "Built for iPad, with accounts in a sidebar beside the book",
     "Dynamic Type: every number and label follows the system text size"
   ],
-  "description": "A read-only iOS client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, deposits and income shown alongside the trades, and a reconciliation of your balance against what the account actually did.",
+  "description": "A read-only iOS and Android client for Alpaca brokerage accounts: realised profit and loss computed trade by trade, regulatory fees netted, deposits and income shown alongside the trades, and a reconciliation of your balance against what the account actually did.",
   "url": "https://tradelogbook.app/",
   "image": "https://tradelogbook.app/icon-512.png",
   "offers": [
@@ -78,7 +78,7 @@
 <main class="wrap">
 <div class="hero">
   <img class="appicon" src="/icon-512.png" alt="" width="96" height="96">
-  <p class="status"><span class="dot" aria-hidden="true"></span>On the App Store</p>
+  <p class="status"><span class="dot" aria-hidden="true"></span>On the App Store and Google Play</p>
   <h1>See what your account actually did.</h1>
   <p class="lede">Logbook reads an <strong>Alpaca</strong> brokerage account and answers the question the dashboard doesn’t: what did each trade make, after costs — and did every order you sent actually fill?</p>
   <p class="cta">
@@ -86,10 +86,13 @@
          visitor's own storefront. A hardcoded /de/ or /us/ link sends everyone
          else through a country switch they did not ask for. -->
     <a class="primary" href="https://apps.apple.com/app/id6803156999">Download on the App Store</a>
+    <!-- Play needs no country handling: one URL, Google resolves the storefront
+         from the signed-in account. The ?id= form is the canonical one. -->
+    <a class="primary" href="https://play.google.com/store/apps/details?id=app.tradelogbook.logbook">Get it on Google Play</a>
     <a class="ghost" href="/support.html">Support</a>
     <a class="ghost" href="/privacy.html">Privacy</a>
   </p>
-  <p class="hero-note">iPhone and iPad, iOS 17 or later — one purchase covers both. An Android version is in testing. Free for three days, then a one-off $4.99. No subscription and no account — you bring your own Alpaca API keys.</p>
+  <p class="hero-note">iPhone and iPad on iOS 17 or later, or Android 8 or later. Free for three days, then a one-off $4.99. The unlock is bought from the store you install from, so it covers iPhone and iPad together, or Android. No subscription and no account — you bring your own Alpaca API keys.</p>
 </div>
 
 <h2>Alpaca does not tell you what a trade made</h2>
@@ -155,7 +158,8 @@
 
 <h2>Before you start</h2>
 <ul>
-  <li>An iPhone or iPad running iOS 17 or later. The unlock is a single purchase tied to your Apple Account, so buying it on one covers the other.</li>
+  <li>An iPhone or iPad running iOS 17 or later, or an Android phone running Android 8 or later.</li>
+  <li>The unlock is a one-off purchase from the store you installed from. On Apple it is tied to your Apple Account, so buying it on iPhone covers iPad. An Android purchase is tied to your Google Account and is separate from an Apple one.</li>
   <li>An Alpaca brokerage account, paper or live, and an API key pair from your Alpaca dashboard.</li>
   <li>Prices come from Alpaca under your own data plan. On the free plan that is the IEX feed — a fraction of consolidated volume, not the full tape.</li>
   <li>Alpaca allows one market-data stream per account. Logbook polls over REST instead, so it will not take the connection your own bots are using.</li>
@@ -167,8 +171,9 @@
      to the visitor's own storefront. -->
 <p class="cta">
   <a class="primary" href="https://apps.apple.com/app/id6803156999">Download on the App Store</a>
+  <a class="primary" href="https://play.google.com/store/apps/details?id=app.tradelogbook.logbook">Get it on Google Play</a>
 </p>
-<p class="hero-note">iPhone and iPad, iOS 17 or later. Free for three days, then a one-off $4.99.</p>
+<p class="hero-note">iOS 17 or later, or Android 8 or later. Free for three days, then a one-off $4.99.</p>
 </main>
 
 <footer><div class="wrap">
